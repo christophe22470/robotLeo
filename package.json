@@ -1,0 +1,27 @@
+{
+  "name": "downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "krikristoophe",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "drivelist": "^3.3.1",
+    "express": "^4.14.0",
+    "external-ip": "^0.2.4",
+    "fs": "0.0.1-security",
+    "moment": "^2.14.1",
+    "my-ip": "^1.1.1",
+    "node-unrar": "^0.1.5",
+    "node-unrar-update": "^0.2.0",
+    "path": "^0.12.7",
+    "pushover-notifications": "^0.2.3",
+    "request": "^2.74.0",
+    "socket.io": "^1.4.8"
+  }
+}

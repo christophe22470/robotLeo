@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<title>Downloader</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="/style/responsive.css">
+		<link rel="stylesheet" type="text/css" href="/style/animate.css">
+		<link rel="stylesheet" type="text/css" href="/style/index.css">
+
+		<script type="text/javascript" src="/script/angular.min.js"></script>
+		<script type="text/javascript" src="/script/angular-animate.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/script/app.js"></script>
+	</head>
+	<body ng-controller="indexController">
+		<div class="col-12 top-menu">
+			<form action="#">
+				<label for="link" class="col-2">Votre lien de téléchargement:</label>
+				<input type="text" name="link" id="link" class="link-input col-5" ng-model="linkInput">
+				<button type="button" name="submit" class="button-submit col-1" ng-click="sendDownload()">Télécharger</button>
+				<label class="col-2">Faire glisser dans les favoris:</label>
+				<a ng-href="javascript:(function(){window.open(\'{{location}}download?link=\'+encodeURIComponent(document.getElementsByClassName(\'ok\'')[0].href))})();" class="button-submit col-1 link">Downloader</a>
+			</form>
+		</div>
+		<div>
+			<div class="telechargement col-10 col-offset-1" ng-hide="allDownload.length < 1">
+				<div class="col-12 element title">Fichiers en cours de téléchargement:</div>
+
+				<div class="col-12 element" ng-repeat="download in allDownload | orderBy: id : true">
+					<div class="col-1">{{download.percentage}}%</div>
+					<div class="col-10 borderLeft">{{download.fileName}}</div>
+					<div class="col-1 borderLeft">{{download.remaining}}</div>
+				</div>
+			</div>
+			
+			<div class="telechargement col-10 col-offset-1" ng-hide="contentFolder.length < 1">
+				<div class="col-12 element title">Fichiers téléchargés:</div>
+
+				<div class="col-12 element" ng-repeat="file in contentFolder">
+					<div class="col-1"><img ng-src="{{file.icon}}" class="col-12"></img></div>
+					<div class="col-10 borderLeft vertical-align">{{file.fileName}}</div>
+					<div class="col-1 borderLeft vertical-align">
+						<div class="col-4 icon"><img src="/icon/transfert.png" class="col-12 icon" ng-click="popTransferer(file)"></div>
+						<div class="col-4 icon"><img src="/icon/suppr.png" class="col-12 icon" ng-click="popSupprimer(file)"></div>
+						<div class="col-4 icon"><img src="/icon/info.png" class="col-12 icon" ng-click="popInfos(file)"></div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div class="fondPopUp" ng-hide="popupActive != true" ng-click="closePopUp()">
+		</div>
+
+		<div class="telechargement transferer popup col-6 col-offset-3" ng-hide="popupTransfereActive != true">
+			<form>
+				<input type="text" name="fichier" class="link-input col-6" ng-model="transferFileName">
+				<div class="col-1 select"><img src="/icon/direction.png" class="col-12"></div>
+				<select class="col-2 select" ng-options="disk as disk.description for disk in listUsb" ng-model="selectDisk"></select>
+				<button type="button" class="button-submit col-2" ng-click="transferer()">Valider</button>
+				<p>{{statusTransfere}}%</p>
+			</form>
+		</div>
+
+		<div class="telechargement supprimer popup col-4 col-offset-4" ng-hide="popupSupprActive != true">
+			<form>
+				<label class="col-10 col-offset-1">Etes vous sur de vouloir supprimer ce fichier?</label>
+				<div class="col-10 col-offset-1">
+					<button type="button" class="button-submit col-4" ng-click="annuler()">Annuler</button>
+					<button type="button" class="button-submit col-4" ng-click="supprimer()">Supprimer</button>
+				</div>
+				
+			</form>
+		</div>
+
+		<div class="telechargement infos popup col-4 col-offset-4" ng-hide="popupInfoActive != true">
+			<p>Nom du fichier: {{fichierInfos.name}}</p>
+			<p>Taille du fichier: {{fichierInfos.taille}}</p>
+			<button type="button" class="button-submit col-4 col-offset-4" ng-click="annuler()">Ok</button>
+		</div>
+
+		<div class="notif-container col-3">
+			<div class="notification" ng-repeat="notification in notifications" ng-click="deleteNotification(notification)">
+				{{notification.description}}
+			</div>
+		</div>
+
+	</body>
+</html>

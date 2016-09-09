@@ -1,0 +1,173 @@
+body{
+	background-color: rgb(230,230,230);
+	font: 15px Arial, Helvetica, sans-serif;
+}
+
+.top-menu{
+	background-color: rgb(40,40,35);
+	color: white;
+	padding: 20px;
+}
+
+label{
+	display: block;
+    color: rgb(145,145,145);
+    margin-bottom: 10px;
+    margin-top: 7px;
+}
+
+.button-submit{
+	margin-left: 20px;
+    background: #2A88AD;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
+}
+
+.button-submit:hover{
+    background: #2A6881;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+
+.link-input{
+	display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 8px;
+    border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border: 2px solid #fff;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+
+.telechargement{
+	border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+	background-color: rgb(250,250,250);
+	margin-top: 40px;
+	color: rgb(75,75,70);
+	padding: 20px;
+
+	box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+    -moz-box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+    -webkit-box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+}
+
+.borderLeft{
+	border-left: 2px solid rgb(230,230,230);
+}
+
+.title{
+	font: 17px Arial, Helvetica, sans-serif;
+}
+
+.element{
+	margin-bottom: 15px;
+}
+
+.vertical-align{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.icon{
+	padding: 2px;
+}
+
+.fondPopUp{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0,0,0,0.75);
+}
+
+.popup{
+	background-color: rgb(250,250,250);
+	position: fixed;
+	top: 20%;
+}
+
+.select{
+	margin-top: 10px;
+}
+
+.notif-container{
+	margin-top: 40px;
+	color: rgb(75,75,70);
+
+    position: fixed;
+    top: 40px;
+    right: 10px;
+}
+
+.link{
+	text-decoration: none;
+}
+
+.notification{
+	background-color: rgb(240,200,130);
+	padding: 20px;
+
+	border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+	color: rgb(75,75,70);
+
+	margin-bottom: 10px;
+
+	box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+    -moz-box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+    -webkit-box-shadow: outset 0px 1px 1px rgba(0, 0, 0, 0.40);
+}
+
+.ng-enter.notification, .ng-leave.notification{
+	animation-duration: 0.8s;
+	animation-fill-mode: both;
+	-moz-animation-duration: 0.8s;
+	-moz-animation-fill-mode: both;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-fill-mode: both;
+}
+
+.ng-enter.notification{
+	animation-name: fadeInUpBig;
+	-moz-animation-name: fadeInUpBig;
+	-webkit-animation-name: fadeInUpBig;
+}
+
+.ng-leave.notification{
+	animation-name: fadeOut;
+	-moz-animation-name: fadeOut;
+	-webkit-animation-name: fadeOut;
+}
+
+.ng-hide-remove.popup{
+	animation-duration: 0.4s;
+	animation-fill-mode: both;
+	-moz-animation-duration: 0.4s;
+	-moz-animation-fill-mode: both;
+	-webkit-animation-duration: 0.4s;
+	-webkit-animation-fill-mode: both;
+	animation-name: zoomIn;
+	-moz-animation-name: zoomIn;
+	-webkit-animation-name: zoomIn;
+}

@@ -1,0 +1,1 @@
+javascript:(function(){window.open('http://localhost:8000/download?link='+encodeURIComponent(document.getElementsByClassName("ok")[0].href))})();
